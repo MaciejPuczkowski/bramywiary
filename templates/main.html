@@ -1,0 +1,53 @@
+<html>
+<head>
+<link rel="stylesheet" href="/static/css/main.css" />
+<link rel="stylesheet" href="/static/css/reset.css" />
+<script src="/static/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/static/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="/static/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/js/tools.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="header"> 
+	<div class="banner">
+	<a href="/"></a>
+	<img  src="/static/img/logo.001.png" />
+	</div>
+		<div class="sentence">
+			<a href="/sentence/"></a>
+		</div>
+		<ul>
+			<li><a href="/about.html" >O nas</a></li>
+			<li><a href="/sponsors.html" >Sponsorzy</a></li>
+			<li><a href="/galleries.html" >Galeria</a></li>
+			<li><a href="/contact.html" >Kontakt</a></li>
+		</ul>
+		<img src="/static/img/logo2.png"  class="right" />
+		
+	</div>
+	<div class="flash_sponsors" id="sponsor">
+		<div class="container">
+		<a href="/sponsor/all"></a>
+		</div>
+	</div>
+	<div class="frame" >
+		
+		<div class="button b1"><a href="day,1,sztuka_wiary.html"></a><img src="/static/img/z.png" /></div>
+		<div class="button b2"><a href="day,2,nauka_wiary.html"></a><img src="/static/img/c.png" /></div>
+		<div class="button b3"><a href="day,3,mowa_wiry.html"></a><img src="/static/img/f.png" /></div>
+		<div class="button b4"><a href="day,4,swiato_wiary.html"></a><img src="/static/img/zlty.png" /></div>
+		<div class="content">
+			{%block content%}
+			{%endblock%}
+		</div>
+		<div class="end"></div>
+	</div>
+	
+	<div class="footer"></div>
+	<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
+</body>
+</html>

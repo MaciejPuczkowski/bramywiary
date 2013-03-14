@@ -1,0 +1,10 @@
+{%extends 'main.html'%}
+{%block content%}
+<div class="list">
+{%for item in list%}
+	<div class="item">
+		{{item.show}}
+	</div>
+{%endfor%}
+</div>
+{%endblock%}

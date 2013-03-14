@@ -1,0 +1,15 @@
+{%extends 'main.html'%}
+{%block content%}
+<div class="list">
+{%for item in list%}
+	<div class="photo">
+	<a rel="prettyPhoto[pp_gal]" title="{{item.description}}"  href="/media/{{item.image}}" ><img width="200px" src="/media/thumbnails/{{item.image}}" /></a>
+		{%if item.author%}<div class="author">{{item.author}}</div>{%endif%}
+		<div class="date">{{item.publish_date}}</div>
+		<div class="clearer"></div>
+		<div class="title sub">{{item.title}}</div>
+		
+	</div>
+{%endfor%}
+</div>
+{%endblock%}

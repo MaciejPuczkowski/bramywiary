@@ -1,0 +1,15 @@
+{%extends 'main.html'%}
+{%block content%}
+<div class="list">
+{%for item in list%}
+	<div class="item sponsor">
+		
+		<img src="/media/{{item.image}}" />
+		<div class="name">{{item.name}}</div>
+		<div class="description">{{item.description}}</div>
+		
+	</div>
+	<div class="clearer"></div>
+{%endfor%}
+</div>
+{%endblock%}

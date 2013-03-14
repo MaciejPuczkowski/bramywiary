@@ -1,0 +1,28 @@
+{%extends 'main.html'%}
+{% load l10n %}
+{%block content%}
+<div class="subheader">
+	<div class="title">
+		{{day.title}}
+	</div>
+	<div class="date">{{day.date}}</div>
+	{%if day.description %}<div class="description">{{day.description}}</div>{%endif%}
+</div>
+<div class="events">
+	<div class="program_title">Program dnia:</div>
+	{%for item in events%}
+	<div class="event">{{item.hour_begin|date:"G.i"}}&nbsp;-&nbsp;{{item.hour_end|date:"G.i"}}:&nbsp;
+	{%if item.description %}<a class="hdesc" href="#">{{item.title}}</a>{%else%}{{item.title}}{%endif%}
+	<div class="event_desc">{{item.description}}</div>
+	</div>
+	
+	{%endfor%}
+</div>
+<div class="list">
+{%for item in list%}
+	<div class="item">
+		{{item.show}}
+	</div>
+{%endfor%}
+</div>
+{%endblock%}
