@@ -113,12 +113,12 @@ def sentence( request, nr = None ):
     else:
         nr = int( nr )
         nr = ( nr + 1 ) % len( s )
-    response = """
+    response = u"""
             <div class="stext">{text}<div class="sauthor">{author}</div></div>
             
             <a href="/sentence/{nr}"></a>
     """.format(
-               text = s[nr].text,
+               text = unicode( s[nr].text ),
                author = s[nr].author,
                nr = nr
                )

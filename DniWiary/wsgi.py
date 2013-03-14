@@ -1,3 +1,4 @@
+#!/home/bramywia/bin/python
 """
 WSGI config for DniWiary project.
 
@@ -14,6 +15,8 @@ framework.
 
 """
 import os
+
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "DniWiary.settings")
 

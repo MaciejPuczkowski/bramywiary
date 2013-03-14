@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin, staticfiles
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from DniWiary.settings import MEDIA_ROOT, MEDIA_URL
+from DniWiary.settings import MEDIA_ROOT, MEDIA_URL, STATIC_URL, STATIC_ROOT
 from django.conf.urls.static import static
 admin.autodiscover()
 
@@ -28,4 +28,4 @@ urlpatterns = patterns('',
     url(r'^sponsor/(?P<nr>\d+)$', 'core.views.sponsor' ),
     url(r'^sponsor/$', 'core.views.sponsor' ),
     url(r'^sponsor/all$', 'core.views.sponsors2' ),
-) + static( MEDIA_URL, document_root = MEDIA_ROOT )
+) + static( MEDIA_URL, document_root = MEDIA_ROOT ) + static( STATIC_URL, document_root = STATIC_ROOT )
