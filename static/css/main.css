@@ -16,13 +16,21 @@ body{
 	color: #333;
 }
 .program_title{
-	font-size:20px;
+	font-size:25px;
+	text-decoration: underline;
 	font-weight: bold;
 }
-.events{
+.guest .guest_title{
+	font-size: 18px;
+	font-weight: bold;
+}
+.guest {
+	margin-bottom:20px;
+}
+.events, .guests{
 	margin-bottom:40px;
 }
-.event a{
+.event a, .guest a{
 	color: #333399;
 }
 .clearer{
@@ -249,7 +257,7 @@ width: 640px;
 		height: 100%;
 		z-index: 1000;'
 }
-.event_desc {
+.event_desc, .guest_desc {
 	display: none;
 	/*
 	border-width: 2px;

@@ -253,6 +253,8 @@ class Contact( models.Model ):
             html += '<div class="contact  address city"><h3></h3><span>%s</span></div>' % self.city
         return mark_safe( html )
     
+#Sponsor powinien dziedziczyc po Patronie, ale ze wzgledu na integralnosc bazy ktora powstaje online musi zostac tak jak jest.
+#Na przyszlosc trzeba poprawic.
 class Sponsor( models.Model ):
     class Meta:
         verbose_name = "Sponsor"
@@ -263,6 +265,56 @@ class Sponsor( models.Model ):
     order = models.IntegerField( max_length = 11, default = 0 )
     def __unicode__(self):
         return self.name
+    
+class Patron( models.Model ):
+    class Meta:
+        verbose_name = "Patron"
+        verbose_name_plural = "Patroni"
+    name = models.CharField( max_length = 255 )
+    image = models.ImageField( upload_to = "upload/logos/", null = True, blank = True )
+    description = models.TextField( null = True, blank = True  )
+    order = models.IntegerField( max_length = 11, default = 0 )
+    def __unicode__(self):
+        return self.name
+    
+class MediaPatron( Patron ):
+    class Meta:
+        verbose_name = "Patron medialny"
+        verbose_name_plural = "Patroni medialni"
+        
+class HonorPatron( Patron ):
+    class Meta:
+        verbose_name = "Patron honorowy"
+        verbose_name_plural = "Patroni honorowy"        
+    
+class Partner( models.Model ):
+    class Meta:
+        verbose_name = "Partner"
+        verbose_name_plural = "Partnerzy"
+
+    
+class GuestMeeting( models.Model ):
+    class Meta:
+        verbose_name = "Spotkanie z gościem"
+        verbose_name_plural = "Spotkania z goścmi"
+    day = models.ForeignKey(Day)
+    hour_begin = models.TimeField()
+    hour_end = models.TimeField( null = True, blank = True );
+    place = models.CharField( max_length = 255, null = True, blank = True )
+    guest = models.ForeignKey("Guest")
+    order = models.IntegerField( max_length = 11, default = 0 )
+    def __unicode__(self):
+        return self.guest.name + " " + self.day.title
+    
+class Guest( models.Model ):
+    class Meta:
+        verbose_name = "Gość"
+        verbose_name_plural = "Goście"
+    name = models.CharField( max_length = 255 )
+    description = models.TextField( null = True, blank = True  )
+    def __unicode__(self):
+        return self.name
+
 class Sentence( models.Model ):
     text = models.CharField( max_length = 2048 )
     author = models.CharField( max_length = 255 )
@@ -318,3 +370,8 @@ admin.site.register( Movie )
 admin.site.register( About )    
 admin.site.register( Contact )  
 admin.site.register( Sponsor )  
+admin.site.register( HonorPatron )
+admin.site.register( MediaPatron )
+admin.site.register( Partner )      
+admin.site.register( Guest )  
+admin.site.register( GuestMeeting )  

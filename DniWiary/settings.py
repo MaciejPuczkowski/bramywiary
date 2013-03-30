@@ -1,6 +1,6 @@
 # Django settings for DniWiary project.
 DATABASE_OPTIONS = {'use_unicode': True, 'charset': 'utf8'}
-
+DEVELOPMENT = True
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_WIDTH = 4
@@ -11,7 +11,10 @@ ADMINS = (
     ( 'pucek', 'puczkowski@gmail.com' ),
     # ('Your Name', 'your_email@example.com'),
 )
-BASEDIR = "/home/bramywia/environments/bramywiary.com.pl/production/src/bramywiary/"
+if DEVELOPMENT:
+    BASEDIR = "/home/pucek/Projekty/bramywiary/"
+else:
+    BASEDIR = "/home/bramywia/environments/bramywiary.com.pl/production/src/bramywiary/"
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -61,7 +64,10 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = BASEDIR + 'static/'
+if DEVELOPMENT:
+    STATIC_ROOT = BASEDIR
+else:
+    STATIC_ROOT = BASEDIR + 'static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"

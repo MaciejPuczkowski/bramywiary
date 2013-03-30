@@ -8,6 +8,25 @@
 	<div class="date">{{day.date}}</div>
 	{%if day.description %}<div class="description">{{day.description}}</div>{%endif%}
 </div>
+{%if guests%}
+<div class="guests">
+	<div class="program_title">Goście:</div>
+	{%for item in guests%}
+	<div class="guest">
+		<div class="guest_title">{{item.guest.name}}</div>
+		<div class="guest_info">
+			<div class="hours">Czas spotkania:&nbsp;{{item.hour_begin|date:"G.i"}}&nbsp;-&nbsp;{{item.hour_end|date:"G.i"}}</div>
+			<div class="place">Miejsce:&nbsp;{{item.place}}</div>
+		</div>
+		{%if item.guest.description %}<a class="hdesc" href="#">Dowiedz się więcej...</a>{%else%}{{item.title}}{%endif%}
+		<div class="guest_desc">{{item.guest.description}}</div>
+	</div>
+	
+	{%endfor%}
+</div>
+{%endif%}
+
+{%if events%}
 <div class="events">
 	<div class="program_title">Program dnia:</div>
 	{%for item in events%}
@@ -18,6 +37,7 @@
 	
 	{%endfor%}
 </div>
+{%endif%}
 <div class="list">
 {%for item in list%}
 	<div class="item">
