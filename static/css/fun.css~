@@ -1,0 +1,23 @@
+.funbutton{
+	position: absolute;
+	width: 68px;
+	height: 68px;
+	z-Index: 98999;
+}
+.funbutton.p1{
+	left: 703px;
+	top: 24px;
+}
+.funbutton.p2{
+	left: 788px;
+	top: 24px;
+}
+.funbutton.p3{
+	left: 703px;
+	top: 105px;
+}
+.funbutton.p4{
+	left: 788px;
+	top: 105px;
+}
+
