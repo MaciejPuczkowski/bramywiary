@@ -35,7 +35,7 @@ class Event( models.Model ):
     hour_begin = models.TimeField()
     hour_end = models.TimeField()
     description = models.TextField( null = True, blank = True )
-    place = models.CharField( max_length = 255, default = '' )
+    place = models.CharField( max_length = 255, default = '',null = True, blank = True )
     def __unicode__(self):
         return self.title
 
