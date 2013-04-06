@@ -1,0 +1,18 @@
+{%extends 'main.html'%}
+{% load l10n %}
+{%block content%}
+<div class="subheader">
+	<div class="title">
+		{{item.title}}
+	</div>
+	{%if day.description %}<div class="description">{{item.description}}</div>{%endif%}
+</div>
+
+<div class="list">
+
+	<div class="item">
+		{{item.show}}
+	</div>
+
+</div>
+{%endblock%}
