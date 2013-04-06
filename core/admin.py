@@ -1,7 +1,7 @@
 from django.contrib import admin
 from core.models import NewsPage, Sentence, Day, Event, News, Photo, Gallery,\
     Movie, About, Contact, Sponsor, HonorPatron, MediaPatron, Partner, Guest,\
-    GuestMeeting
+    GuestMeeting, Organizer
 admin.site.register( NewsPage )     
 admin.site.register( Sentence ) 
 admin.site.register( Day )  
@@ -18,3 +18,4 @@ admin.site.register( MediaPatron )
 admin.site.register( Partner )      
 admin.site.register( Guest )  
 admin.site.register( GuestMeeting )  
+admin.site.register( Organizer )  

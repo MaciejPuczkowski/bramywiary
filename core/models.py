@@ -375,7 +375,7 @@ def youtube_url_parse( sender, instance, **kwargs ):
     print id_
     instance.url = "http://www.youtube.com/embed/" + id_[0]
  
- 
+admin.site.register( Organizer )     
 admin.site.register( NewsPage )     
 admin.site.register( Sentence ) 
 admin.site.register( Day )  
