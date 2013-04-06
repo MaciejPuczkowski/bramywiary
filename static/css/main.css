@@ -1,7 +1,7 @@
 body{
 
-	 background-color: #00183f;
-	/*background-color: #fff; */
+	/* background-color: #00183f; */
+	background-color: #fff; 
 	
 }
 .subheader .title{
@@ -75,8 +75,8 @@ body{
 	text-transform: uppercase;
 	font-family: Arial, Verdana;
 	font-weight: bold;
-	color: #0042aa;
-	font-size: 20px;
+	color: rgb(0,116,187);
+	font-size: 16px;
 	line-height: 1.5;
 }
 .header a:hover{
@@ -88,17 +88,18 @@ float:left;
 }
 .header li{
 	float:left;
-	margin-left: 20px;
+	margin-left: 14px;
 	
 }
 .header .sentence{
 	position:absolute;
-	width:500px;
+	width:650px;;
 	height: 112px;
 	overflow: hidden;
 	left:182px;
 	top:25px;
 	color: #444;
+	margin-left:11px;
 }
 .sentence .sauthor{
 	text-align:right;
@@ -109,16 +110,16 @@ float:left;
 .sentence .stext{
 	line-height: 1.2;
 	display:none;
-	font-size: 25px;
+	font-size: 20px;
 
 	
 }
 .frame{
-
+/*
 	border-width: 2px;
 	border-color: #0874bb;
 	border-style: solid;
-	
+*/
 	padding-top: 20px;
 	margin-top: 20px;
 	width: 900px;
@@ -191,7 +192,7 @@ float:left;
 }
 .item .title{
 	font-weight: bold;
-	font-size:20px;
+	font-size:18px;
 	border-width: 0px;
 	border-bottom-width: 2px;
 	border-style: solid;
@@ -274,33 +275,30 @@ width: 640px;
 .gallery.short{
 	position:relative;
 	width: 820px;
-	background-color: #000000;
+	background-color: #fff;
 	border-radius:20px;
 	margin-left:-10px;
-	color: #eee;
+	color: #000;
 	min-height: 254px;
 	margin-bottom:20px;
 }
 .gallery.short .title {
 	border-width:0;
-	line-height: 55px;
-	height:55px;
-	margin-left:20px;
+	
+	
+	margin-left:9px;
 	margin-right:20px;
 	margin-top:0px;
 }
 .gallery.short .list{
-	height: 200px;
-
-	margin-left:auto;
-	margin-right:auto;
 	
 }
 .gallery.short .date{
 	
 	float:right;
-	margin:20px;
+	margin-right:9px;
 	margin-bottom: 10px;
+	font-size:12px;
 }
 .gallery.short .author{
 	
@@ -311,14 +309,15 @@ width: 640px;
 .gallery.short .description{
 	font-size:14px;
 	line-height: 1.2;
-	margin:20px;
+	margin-left:9px;
 	
 }
 .gallery.short a.more{
-	margin-right: 20px;
+	margin-right: 9px;
 	margin-top:5px;
 	float: right;
-	color: #eee;
+	color: #000;
+	font-size:12px;
 }
 .photo {
 	width:200px;
@@ -356,7 +355,7 @@ width: 640px;
 .contact h3{
 	float: left;
 	margin-right:5px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 .contact .street, .contact .postal {
 	float: left;
@@ -427,3 +426,28 @@ width: 640px;
 	float:left;
 	
 }
+
+ul.dot{
+	list-style-type:circle;
+	margin-left: 20px;
+}
+p {
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+img.inline_photo {
+	margin:2px;
+}
+img.inline_photo.fullwidth{
+	max-width: 800px;
+}
+img.inline_photo.halfwidth{
+	max-width: 400px;
+}
+img.inline_photo.qwidth{
+	max-width:200px;
+}
+img.inline_photo.left{
+	float:left;
+}
+img.inline_photo.right{float:right;}

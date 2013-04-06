@@ -12,6 +12,7 @@ from django.dispatch import receiver
 import Image
 from django.utils.formats import localize
 import re
+import templatetags.formatting as formatting
 
 # Create your models here.
 
@@ -78,7 +79,7 @@ class News( Content ):
         html = '<div class="news">'
         if self.show_title and self.title: 
             html += '<div class="title">%s</div>' %self.title
-        html += '<div class="text">%s</div>' %self.text
+        html += '<div class="text">%s</div>' % formatting.format( self.text )
         if self.show_author and self.author: 
             html += '<div class="author">Autor:&nbsp;%s</div>' %self.author
         if self.show_date and self.publish_date : 
@@ -134,7 +135,7 @@ class Gallery( Content ):
         html +='<div class="clearer"></div>'
         if self.show_description and self.description: 
             html += '<div class="description">%s</div>' %self.description
-        if self.show_author and self.author is not None: 
+        if self.show_author and self.author : 
             html += '<div class="author">Autor:&nbsp;%s</div>' %self.author
         if self.show_date and self.publish_date: 
             html += '<div class="date">%s</div>' % localize( localize( self.publish_date ) )

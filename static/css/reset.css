@@ -47,3 +47,13 @@ table {
 	border-spacing: 0;
 }
 
+b{
+	font-weight: bold;
+}
+strong{
+	font-weight: bolder;
+}
+i {
+	font-style: italic;
+}
+

@@ -1,6 +1,6 @@
 # Django settings for DniWiary project.
 DATABASE_OPTIONS = {'use_unicode': True, 'charset': 'utf8'}
-DEVELOPMENT = False
+DEVELOPMENT = True
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_WIDTH = 4
@@ -12,7 +12,7 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 if DEVELOPMENT:
-    BASEDIR = "/home/pucek/Projekty/bramywiary/"
+    BASEDIR = "/home/pucek/Projekty/juno/DniWiary/"
 else:
     BASEDIR = "/home/bramywia/environments/bramywiary.com.pl/production/src/bramywiary/"
 MANAGERS = ADMINS
