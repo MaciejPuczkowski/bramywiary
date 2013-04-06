@@ -1,6 +1,14 @@
 {%extends 'main.html'%}
 {%block content%}
 <div class="list">
+{%if organizers%}<div class="program_title">Organizatorzy:</div>{%endif%}
+{%for item in organizers%}
+	<div class="item sponsor">
+		<a href="{{item.url}}"></a>
+		<img src="/media/{{item.image}}" />
+	</div>
+{%endfor%}
+	<div class="clearer"></div>
 {%if sponsors%}<div class="program_title">Sponsorzy:</div>{%endif%}
 {%for item in sponsors%}
 	<div class="item sponsor">

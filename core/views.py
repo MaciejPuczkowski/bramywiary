@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from core.models import News, Photo, Gallery, Movie, Day, Sponsor, About,\
     Contact, Event, Sentence, GuestMeeting, NewsPage, MediaPatron, HonorPatron,\
-    Partner
+    Partner, Organizer
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 import random
@@ -75,6 +75,7 @@ def sponsors( request ):
             "mpatrons" : MediaPatron.objects.all().order_by("order"),
             "hpatrons" : HonorPatron.objects.all().order_by("order"),
             "partners" : Partner.objects.all().order_by("order"),
+            "organizers" : Organizer.objects.all().order_by("order"),
             }
     return render_to_response( "core/sponsors.html", data )
 def sponsors2( request ):

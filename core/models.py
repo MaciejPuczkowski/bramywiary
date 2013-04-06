@@ -298,7 +298,10 @@ class HonorPatron( Patron ):
     class Meta:
         verbose_name = "Patron honorowy"
         verbose_name_plural = "Patroni honorowy"        
-    
+class Organizer( Patron ):
+    class Meta:
+        verbose_name = "Organizator"
+        verbose_name_plural = "Organizatorzy"  
 class Partner( Patron ):
     class Meta:
         verbose_name = "Partner"
