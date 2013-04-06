@@ -1,6 +1,6 @@
 # Django settings for DniWiary project.
 DATABASE_OPTIONS = {'use_unicode': True, 'charset': 'utf8'}
-DEVELOPMENT = False
+DEVELOPMENT = True
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_WIDTH = 4

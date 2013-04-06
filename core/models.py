@@ -87,6 +87,14 @@ class News( Content ):
         html +='<div class="clearer"></div>'
         html += '</div>'
         return mark_safe( html )
+class NewsPage( models.Model ):
+    class Meta:
+        verbose_name = "Strona z newsa"
+        verbose_name_plural = "Strony z newsów"
+    name = models.CharField( max_length = 255 )
+    news = models.ForeignKey( News )
+    def __unicode__(self):
+        return self.name
     
 class Photo( Content ):
     class Meta:
@@ -361,7 +369,9 @@ def youtube_url_parse( sender, instance, **kwargs ):
         id_ = ["#"]
     print id_
     instance.url = "http://www.youtube.com/embed/" + id_[0]
-    
+ 
+ 
+admin.site.register( NewsPage )     
 admin.site.register( Sentence ) 
 admin.site.register( Day )  
 admin.site.register( Event )  

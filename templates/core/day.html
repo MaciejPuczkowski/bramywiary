@@ -31,8 +31,12 @@
 	<div class="program_title">Program dnia:</div>
 	{%for item in events%}
 	<div class="event">{{item.hour_begin|date:"G.i"}}&nbsp;-&nbsp;{{item.hour_end|date:"G.i"}}:&nbsp;
-	{%if item.description %}<a class="hdesc" href="#">{{item.title}}</a>{%else%}{{item.title}}{%endif%}
-	<div class="event_desc">{{item.description}}</div>
+	{%if item.description or item.place %}<a class="hdesc" href="#">{{item.title}}</a>{%else%}{{item.title}}{%endif%}
+	<div class="event_desc">
+	<div class="place">
+		Miejsce:&nbsp;{{item.place}}</div>
+		{{item.description}}
+	</div>
 	</div>
 	
 	{%endfor%}

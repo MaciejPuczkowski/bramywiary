@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from core.models import News, Photo, Gallery, Movie, Day, Sponsor, About,\
-    Contact, Event, Sentence, GuestMeeting
+    Contact, Event, Sentence, GuestMeeting, NewsPage
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 import random
@@ -34,6 +34,15 @@ def homepage( request ):
     _list = merge( _list, Movie.objects.filter( homepage = True ).order_by("-publish_date") )
     data["list"] = _list
     return render_to_response( "core/homepage.html", data )
+def newspage( request, name ):
+    data = {}
+    np = NewsPage.objects.get( name = name )
+    np.news.show_title = False
+    np.news.show_date = False
+    data["item"] = np.news
+    data["name"] = np.name
+    return render_to_response( "core/newspage.html", data )
+
 def dayView( request, id, name ):
     day = Day.objects.get( nr = id )
     data = {}
