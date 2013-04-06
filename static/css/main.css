@@ -88,7 +88,7 @@ float:left;
 }
 .header li{
 	float:left;
-	margin-left: 14px;
+	margin-left: 9px;
 	
 }
 .header .sentence{
@@ -100,6 +100,7 @@ float:left;
 	top:25px;
 	color: #444;
 	margin-left:11px;
+	text-align: justify;
 }
 .sentence .sauthor{
 	text-align:right;
@@ -251,6 +252,7 @@ width: 640px;
 .banner{
 	position:relative;
 	float:left;
+	margin-left: 40px;
 }
 .banner a{
 		display: block;
@@ -389,16 +391,22 @@ width: 640px;
 	border-width: 0;
 }
 .item.sponsor{
-	width: 800px;
-	margin-left: auto;
-	margin-right:auto;
-	margin-bottom:20px;
-	
+	width: 100px;
+	margin:2px;
+	float:left;
+	position:relative;
 }
 .item.sponsor img{
-	max-width:200px;
+	max-width:100px;
 	float:left;
 	margin-right:10px;
+	
+}
+.item.sponsor a{
+	display:block;
+	position:absolute;
+	width: 100%;
+	height: 100%;
 }
 .item.sponsor .name{
 	font-size: 20px;
@@ -427,6 +435,22 @@ width: 640px;
 	
 }
 
+.guests_page .guest_desc{
+	display:block;
+}
+.guests_page .guest_title{
+	float: left;
+}
+.guests_page .guest_desc {
+	margin-left: 0px;
+	background-color: #fff;
+	padding: 0;
+	text-align: justify;
+}
+.guests_page .hours, .guests_page .place {
+	float: right;
+	margin-left: 5px;
+}
 ul.dot{
 	list-style-type:circle;
 	margin-left: 20px;
@@ -434,6 +458,7 @@ ul.dot{
 p {
 	margin-top:10px;
 	margin-bottom: 10px;
+	text-align: justify;
 }
 img.inline_photo {
 	margin:2px;

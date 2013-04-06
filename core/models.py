@@ -273,6 +273,7 @@ class Sponsor( models.Model ):
     image = models.ImageField( upload_to = "upload/logos/", null = True, blank = True )
     description = models.TextField( null = True, blank = True  )
     order = models.IntegerField( max_length = 11, default = 0 )
+    url = models.CharField( max_length = 1024 )
     def __unicode__(self):
         return self.name
     
@@ -282,6 +283,7 @@ class Patron( models.Model ):
         verbose_name_plural = "Patroni"
     name = models.CharField( max_length = 255 )
     image = models.ImageField( upload_to = "upload/logos/", null = True, blank = True )
+    url = models.CharField( max_length = 1024 )
     description = models.TextField( null = True, blank = True  )
     order = models.IntegerField( max_length = 11, default = 0 )
     def __unicode__(self):
@@ -297,7 +299,7 @@ class HonorPatron( Patron ):
         verbose_name = "Patron honorowy"
         verbose_name_plural = "Patroni honorowy"        
     
-class Partner( models.Model ):
+class Partner( Patron ):
     class Meta:
         verbose_name = "Partner"
         verbose_name_plural = "Partnerzy"

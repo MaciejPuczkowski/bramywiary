@@ -1,0 +1,30 @@
+{%extends 'main.html'%}
+{% load l10n %}
+{%block content%}
+<div class="subheader">
+	<div class="title">
+		Goście
+	</div>
+</div>
+<div class="guests_page">
+{%for day in days%}
+<div class="guests">
+	{%if day.guests%}<div class="program_title">{{day.title}}:</div>{%endif%}
+	{%for item in day.guests%}
+	
+	<div class="guest">
+		<div class="guest_title">{{item.guest.name}}</div>
+		<div class="guest_info">
+			<div class="hours">Czas spotkania:&nbsp;<b>{{item.hour_begin|date:"G.i"}}&nbsp;-&nbsp;{{item.hour_end|date:"G.i"}}</b></div>
+			<div class="place">Miejsce:&nbsp;<b>{{item.place}}</b></div>
+		</div>
+		<div class="clearer"></div>
+		<div class="guest_desc">{{item.guest.description}}</div>
+	</div>
+	
+	{%endfor%}
+</div>
+{%endfor%}
+</div>
+
+{%endblock%}

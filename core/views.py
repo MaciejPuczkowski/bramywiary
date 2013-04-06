@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from core.models import News, Photo, Gallery, Movie, Day, Sponsor, About,\
-    Contact, Event, Sentence, GuestMeeting, NewsPage
+    Contact, Event, Sentence, GuestMeeting, NewsPage, MediaPatron, HonorPatron,\
+    Partner
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 import random
@@ -58,10 +59,22 @@ def dayView( request, id, name ):
     data["events"] = Event.objects.filter( day = day ).order_by("hour_begin")
     data["list"] = _list
     return render_to_response( "core/day.html", data )
-
+def guests( request ):
+    data = {}
+    _days = Day.objects.all().order_by("date")
+    days = []
+    for day in _days:
+        day.guests = GuestMeeting.objects.filter( day = day ).order_by("order")
+        days.append( day )
+    data["days"] = days
+    
+    return render_to_response( "core/guests.html", data )
 def sponsors( request ):
     data = {
-            "list" : Sponsor.objects.all().order_by("order")
+            "sponsors" : Sponsor.objects.all().order_by("order"),
+            "mpatrons" : MediaPatron.objects.all().order_by("order"),
+            "hpatrons" : HonorPatron.objects.all().order_by("order"),
+            "partners" : Partner.objects.all().order_by("order"),
             }
     return render_to_response( "core/sponsors.html", data )
 def sponsors2( request ):

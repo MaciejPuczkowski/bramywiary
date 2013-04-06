@@ -1,15 +1,38 @@
 {%extends 'main.html'%}
 {%block content%}
 <div class="list">
-{%for item in list%}
+{%if sponsors%}<div class="program_title">Sponsorzy:</div>{%endif%}
+{%for item in sponsors%}
 	<div class="item sponsor">
-		
+		<a href="{{item.url}}"></a>
 		<img src="/media/{{item.image}}" />
-		<div class="name">{{item.name}}</div>
-		<div class="description">{{item.description}}</div>
-		
 	</div>
-	<div class="clearer"></div>
 {%endfor%}
+	<div class="clearer"></div>
+{%if mpatrons%}<div class="program_title">Patroni medialni:</div>{%endif%}
+{%for item in mpatrons%}
+	<div class="item sponsor">
+		<a href="{{item.url}}"></a>
+		<img src="/media/{{item.image}}" />
+	</div>
+{%endfor%}
+	<div class="clearer"></div>
+{%if hpatrons%}<div class="program_title">Patroni honorowi:</div>{%endif%}
+{%for item in hpatrons%}
+	<div class="item sponsor">
+		<a href="{{item.url}}"></a>
+		<img src="/media/{{item.image}}" />
+	</div>
+{%endfor%}
+	<div class="clearer"></div>
+{%if partners%}<div class="program_title">Partnerzy:</div>{%endif%}
+{%for item in partners%}
+	<div class="item sponsor">
+		<a href="{{item.url}}"></a>
+		<img src="/media/{{item.image}}" />
+	</div>
+{%endfor%}
+	<div class="clearer"></div>
+
 </div>
 {%endblock%}
