@@ -1,7 +1,7 @@
 # Django settings for DniWiary project.
 DATABASE_OPTIONS = {'use_unicode': True, 'charset': 'utf8'}
 DEVELOPMENT = False
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_WIDTH = 4
 THUMBNAIL_HEIGHT = 3
@@ -64,7 +64,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-if DEVELOPMENT:
+if DEBUG:
     STATIC_ROOT = BASEDIR
 else:
     STATIC_ROOT = BASEDIR + 'static/'
@@ -74,13 +74,19 @@ else:
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-                    BASEDIR + 'static/',
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
+if DEBUG:
+    STATICFILES_DIRS = (
+                        BASEDIR + 'static/',
+        # Put strings here, like "/home/html/static" or "C:/www/django/static".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+    )
+else:
+    STATICFILES_DIRS = (
+        # Put strings here, like "/home/html/static" or "C:/www/django/static".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+    )
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (

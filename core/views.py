@@ -55,7 +55,7 @@ def dayView( request, id, name ):
     _list = merge( _list, Movie.objects.filter( day = day ) )
     data["day"] = day
     data["guests"] = GuestMeeting.objects.filter( day = day ).order_by("hour_begin").order_by("order")
-    print data
+   
     data["events"] = Event.objects.filter( day = day ).order_by("hour_begin")
     data["list"] = _list
     return render_to_response( "core/day.html", data )

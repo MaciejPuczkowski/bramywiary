@@ -4,6 +4,7 @@ from django.contrib import admin, staticfiles
 from django.contrib import admin
 from DniWiary.settings import MEDIA_ROOT, MEDIA_URL, STATIC_URL, STATIC_ROOT
 from django.conf.urls.static import static
+from DniWiary import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -30,4 +31,10 @@ urlpatterns = patterns('',
     url(r'^sponsor/(?P<nr>\d+)$', 'core.views.sponsor' ),
     url(r'^sponsor/$', 'core.views.sponsor' ),
     url(r'^sponsor/all$', 'core.views.sponsors2' ),
-) + static( MEDIA_URL, document_root = MEDIA_ROOT ) + static( STATIC_URL, document_root = STATIC_ROOT )
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.STATIC_ROOT }),
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT }),
+) 
+if settings.DEBUG:
+    urlpatterns += static( MEDIA_URL, document_root = MEDIA_ROOT ) + static( STATIC_URL, document_root = STATIC_ROOT )
