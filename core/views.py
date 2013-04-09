@@ -56,7 +56,27 @@ def dayView( request, id, name ):
     data["day"] = day
     data["guests"] = GuestMeeting.objects.filter( day = day ).order_by("hour_begin").order_by("order")
    
-    data["events"] = Event.objects.filter( day = day ).order_by("hour_begin")
+    data["events"] = {}
+    events = Event.objects.filter( day = day ).order_by("hour_begin")
+    
+    for event in events:
+        if event.categories == '':
+            if '' in data["events"].keys():
+                data["events"][ '' ]["list"].append( event )
+            else:
+                data["events"][ '' ] = { "name" : '', "list" : [event] } 
+            continue
+    
+        cats = event.categories.split(";")
+       
+        for cat in cats:
+            cat = cat.strip()
+            if cat in data["events"].keys():
+                data["events"][ cat ]["list"].append( event )      
+            else:
+                data["events"][ cat ] = { "name" : cat, "list" : [event] } 
+    
+    data["events"] = data["events"].values()
     data["list"] = _list
     return render_to_response( "core/day.html", data )
 def guests( request ):

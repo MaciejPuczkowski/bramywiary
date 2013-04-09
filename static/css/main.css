@@ -21,6 +21,11 @@ body{
 	text-decoration: underline;
 	font-weight: bold;
 }
+.events h3{
+	font-size:20px;
+	text-transform:capitalize;
+	font-weight: bold;
+}
 .guest .guest_title{
 	font-size: 18px;
 	font-weight: bold;
