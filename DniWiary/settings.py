@@ -14,7 +14,7 @@ ADMINS = (
 if DEVELOPMENT:
     BASEDIR = "/home/pucek/Projekty/juno/DniWiary/"
 else:
-    BASEDIR = "/home/bramywia/environments/bramywiary.com.pl/production/src/bramywiary/"
+    BASEDIR = "/home/bramywia/environments/bramywiary/production/src/bramywiary/"
 MANAGERS = ADMINS
 
 DATABASES = {
