@@ -13,6 +13,7 @@ import Image
 from django.utils.formats import localize
 import re
 import templatetags.formatting as formatting
+from DniWiary import settings
 
 # Create your models here.
 
@@ -374,21 +375,21 @@ def youtube_url_parse( sender, instance, **kwargs ):
         id_ = ["#"]
     print id_
     instance.url = "http://www.youtube.com/embed/" + id_[0]
- 
-admin.site.register( Organizer )     
-admin.site.register( NewsPage )     
-admin.site.register( Sentence ) 
-admin.site.register( Day )  
-admin.site.register( Event )  
-admin.site.register( News )  
-admin.site.register( Photo )  
-admin.site.register( Gallery )  
-admin.site.register( Movie )
-admin.site.register( About )    
-admin.site.register( Contact )  
-admin.site.register( Sponsor )  
-admin.site.register( HonorPatron )
-admin.site.register( MediaPatron )
-admin.site.register( Partner )      
-admin.site.register( Guest )  
-admin.site.register( GuestMeeting )  
+if settings.DEBUG:
+    admin.site.register( Organizer )     
+    admin.site.register( NewsPage )     
+    admin.site.register( Sentence ) 
+    admin.site.register( Day )  
+    admin.site.register( Event )  
+    admin.site.register( News )  
+    admin.site.register( Photo )  
+    admin.site.register( Gallery )  
+    admin.site.register( Movie )
+    admin.site.register( About )    
+    admin.site.register( Contact )  
+    admin.site.register( Sponsor )  
+    admin.site.register( HonorPatron )
+    admin.site.register( MediaPatron )
+    admin.site.register( Partner )      
+    admin.site.register( Guest )  
+    admin.site.register( GuestMeeting )  
