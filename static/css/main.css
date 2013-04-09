@@ -444,7 +444,8 @@ width: 640px;
 	display:block;
 }
 .guests_page .guest_title{
-	float: left;
+	/*float: left;*/
+
 }
 .guests_page .guest_desc {
 	margin-left: 0px;
@@ -453,8 +454,9 @@ width: 640px;
 	text-align: justify;
 }
 .guests_page .hours, .guests_page .place {
-	float: right;
-	margin-left: 5px;
+	/*float: right;
+	margin-left: 5px;*/
+	font-size: 70%;
 }
 ul.dot{
 	list-style-type:circle;

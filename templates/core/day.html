@@ -1,5 +1,6 @@
 {%extends 'main.html'%}
 {% load l10n %}
+{% load formatting%}
 {%block content%}
 <div class="subheader">
 	<div class="title">
@@ -21,7 +22,7 @@
 			<div class="event_desc">
 			<div class="place">
 				Miejsce:&nbsp;{{item.place}}</div>
-				{{item.description}}
+				{{item.description|format}}
 			</div>
 			</div>
 		{%endfor%}
