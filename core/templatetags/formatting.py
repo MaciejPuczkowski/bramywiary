@@ -8,9 +8,14 @@ register = template.Library()
 
 def template_function( function ):
     function = function.strip()
+    
     if function == "list":
         return '<ul class="dot">'
+    if function == "enumerate":
+        return '<ul class="enum">'
     if function == "/list":
+        return "</ul>"
+    if function == "/enumerate":
         return "</ul>"
     if function == "item":
         return "<li>"
@@ -43,8 +48,18 @@ def template_function( function ):
                 ret += ' class="inline_photo"  ' 
             ret += " />"
             return ret
-            
-            
+    if function[:4] == "link":
+        matched = re.search('link="(.*?)"' , function )
+        if matched is not None:
+            url = matched.group(1)
+            ret = '<a href="%s">' % url
+            matched = re.search('display="(.*?)"' , function )
+            if matched is not None:
+                ret +=  matched.group(1)
+            else:
+                ret+= url
+            ret += "</a>"
+            return ret
             
     return ""
    
@@ -76,7 +91,10 @@ def format( text ):
     result = re.search( pattern, new_text )
     while result is not None:
         p = result.group(0)
-        new_text = re.sub( p , template_function(  result.group(1) ),new_text ) 
+        print p
+        print template_function(  result.group(1) )
+        new_text = re.sub( re.escape(p) , template_function(  result.group(1) ),new_text ) 
+        
         result = re.search( pattern, new_text )
     
     return mark_safe( new_text )

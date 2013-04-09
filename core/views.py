@@ -97,6 +97,13 @@ def sponsors( request ):
             "partners" : Partner.objects.all().order_by("order"),
             "organizers" : Organizer.objects.all().order_by("order"),
             }
+    for key, list in data.items():
+        for item in list:
+            if item.url != "#" and item.url[:4] != "http" and item.url[:7] != "[inner]":
+                item.url = "http://" + item.url 
+            if item.url[:7] == "[inner]":
+                item.url = item.url[7:]
+        
     return render_to_response( "core/sponsors.html", data )
 def sponsors2( request ):
     html =""
