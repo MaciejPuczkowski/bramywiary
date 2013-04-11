@@ -338,9 +338,10 @@ class Sentence( models.Model ):
     def __unicode__(self):
         return self.text
 import math
+
 @receiver( post_save, sender = Photo )
 def make_thumbnail( sender, instance, **kwargs ):
-    print instance
+
     img = Image.open( MEDIA_ROOT + unicode( instance.image ) ).copy()
     x1, y1, width, height = img.getbbox()
     w = THUMBNAIL_WIDTH

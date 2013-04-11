@@ -1,5 +1,6 @@
 {%extends 'main.html'%}
 {% load l10n %}
+{% load formatting%}
 {%block content%}
 <div class="subheader">
 	<div class="title">
@@ -19,7 +20,7 @@
 			<div class="place">Miejsce:&nbsp;<b>{{item.place}}</b></div>
 		</div>
 		<div class="clearer"></div>
-		<div class="guest_desc">{{item.guest.description}}</div>
+		<div class="guest_desc">{{item.guest.description|format}}</div>
 	</div>
 	
 	{%endfor%}
