@@ -5,40 +5,48 @@
 {%if organizers%}<div class="program_title">Organizatorzy:</div>{%endif%}
 {%for item in organizers%}
 	<div class="item sponsor">
-		<a href="{{item.url}}"></a>
+		
 		<img src="/media/{{item.image}}" />
+		<a href="{{item.url}}" target="_blank"></a>
 	</div>
 {%endfor%}
 	<div class="clearer"></div>
+{%if organizers%}	<div class="whitespace"></div>{%endif%}
 {%if sponsors%}<div class="program_title">Sponsorzy:</div>{%endif%}
 {%for item in sponsors%}
 	<div class="item sponsor">
-		<a href="{{item.url}}"></a>
-		<img src="/media/{{item.image}}" />
+		
+		<img src="/media/{{item.image}}" class="hyperlink" />
+		<a href="{{item.url}}" target="_blank"></a>
 	</div>
 {%endfor%}
 	<div class="clearer"></div>
+{%if sponsors%}	<div class="whitespace"></div>{%endif%}
 {%if mpatrons%}<div class="program_title">Patroni medialni:</div>{%endif%}
 {%for item in mpatrons%}
 	<div class="item sponsor">
-		<a href="{{item.url}}"></a>
-		<img src="/media/{{item.image}}" />
+		
+		<img src="/media/{{item.image}}" class="hyperlink" />
+		<a href="{{item.url}}" target="_blank"></a>
 	</div>
 {%endfor%}
 	<div class="clearer"></div>
+{%if mpatrons%}	<div class="whitespace"></div>{%endif%}
 {%if hpatrons%}<div class="program_title">Patroni honorowi:</div>{%endif%}
 {%for item in hpatrons%}
 	<div class="item sponsor">
-		<a href="{{item.url}}"></a>
-		<img src="/media/{{item.image}}" />
+		<a href="{{item.url}}" target="_blank"></a>
+		<img src="/media/{{item.image}}" class="hyperlink" />
 	</div>
 {%endfor%}
 	<div class="clearer"></div>
+{%if hpatrons%}	<div class="whitespace"></div>{%endif%}
 {%if partners%}<div class="program_title">Partnerzy:</div>{%endif%}
 {%for item in partners%}
 	<div class="item sponsor">
-		<a href="{{item.url}}"></a>
-		<img src="/media/{{item.image}}" />
+		
+		<img src="/media/{{item.image}}" class="hyperlink" />
+		<a href="{{item.url}}" target="_blank"></a>
 	</div>
 {%endfor%}
 	<div class="clearer"></div>

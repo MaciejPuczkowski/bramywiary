@@ -9,7 +9,7 @@ strong{
 	font-weight: normal;
 }
 body{
-	font-size:12px;
+	
 	/* background-color: #00183f; */
 	font-family: keepcalm, Verdana;
 	background-color: #fff; 
@@ -144,6 +144,8 @@ body{
 	height: 100%;
 	position:absolute;
 	z-index: 1000;
+	left:0;
+	top:0;
 	
 }
 .container {
@@ -279,6 +281,11 @@ width: 640px;
 		width: 100%;
 		height: 100%;
 		z-index: 1000;
+		left:0;
+	top:0;
+}
+img.hyperlink{
+	cursor: pointer;
 }
 .event_desc, .guest_desc {
 	display: none;
@@ -369,7 +376,6 @@ width: 640px;
 }
 .item.contact .title {
 	line-height: 25px;
-	text-decoration: underline;
 	border-width: 0;
 }
 .contact h3{
@@ -516,6 +522,7 @@ img.inline_photo.right{float:right;}
 	color: #fff;
 	width:100%;
 	position:relative;
+	min-height: 400px;
 	
 }
 .colorbox .subheader .title, .colorbox .subheader .date{
@@ -578,7 +585,10 @@ img.inline_photo.right{float:right;}
 .colorbox.day.d4 {
 	background-color: #ffc911;
 }
-
+.whitespace{
+	width: 100%;
+	height: 50px;
+}
 .footer{
 	width: 100%;
 	height: 100px;

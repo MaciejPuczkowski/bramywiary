@@ -73,4 +73,7 @@ $(document).ready(function(){
 		position: "absolute",
 		zIndex: "1000"
 	});
+	$("img.hyperlink").click(function(){
+		document.location.href = $(this).next().attr("href");
+	});
 });

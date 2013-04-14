@@ -2,11 +2,16 @@
 {%load formatting%}
 {%block content%}
 <div class="colorbox">
-<div class="subcontent">
+<div class="subheader" >
+	<div class="title" style="left:-60px">
+		Strona Główna
+	</div>
+</div>
+<div class="subcontent dynamic">
 <div class="list">
 {%for item in list%}
 	<div class="item">
-		{{item.show}}
+		{{item.show_small}}
 	</div>
 {%endfor%}
 </div>

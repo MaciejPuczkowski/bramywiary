@@ -52,7 +52,7 @@ def template_function( function ):
         matched = re.search('link="(.*?)"' , function )
         if matched is not None:
             url = matched.group(1)
-            ret = '<a href="%s">' % url
+            ret = '<a href="%s" target="_blank">' % url
             matched = re.search('display="(.*?)"' , function )
             if matched is not None:
                 ret +=  matched.group(1)
@@ -91,8 +91,8 @@ def format( text ):
     result = re.search( pattern, new_text )
     while result is not None:
         p = result.group(0)
-        print p
-        print template_function(  result.group(1) )
+        #print p
+        #print template_function(  result.group(1) )
         new_text = re.sub( re.escape(p) , template_function(  result.group(1) ),new_text ) 
         
         result = re.search( pattern, new_text )
