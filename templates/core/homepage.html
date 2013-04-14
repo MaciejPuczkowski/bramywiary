@@ -1,11 +1,15 @@
 {%extends 'main.html'%}
 {%load formatting%}
 {%block content%}
+<div class="colorbox">
+<div class="subcontent">
 <div class="list">
 {%for item in list%}
 	<div class="item">
 		{{item.show}}
 	</div>
 {%endfor%}
+</div>
+</div>
 </div>
 {%endblock%}

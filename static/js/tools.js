@@ -55,6 +55,15 @@ $(document).ready(function(){
 		}
 		
 	} );
+	var left = $(".colorbox .subheader .title").css( "left" );
+	left = parseInt( left )
+	var top_ = $(".colorbox .subheader .title").css( "top" );
 	
+	top_ = parseInt( top_ );
+	//alert( top_ );
+	$(".colorbox .subcontent.dynamic").css({
+		marginLeft: parseInt( left ) + 5 + $(".colorbox .subheader .title").width() + "px",
+		marginTop: parseInt( top_ ) + 5 + $(".colorbox .subheader .title").height() + "px"
+	});
 	
 });

@@ -2,12 +2,14 @@
 {% load l10n %}
 {% load formatting%}
 {%block content%}
+<div class="colorbox">
 <div class="subheader">
 	<div class="title">
 		Goście
 	</div>
 </div>
 <div class="guests_page">
+<div class="subcontent dynamic">
 {%for day in days%}
 <div class="guests">
 	{%if day.guests%}<div class="program_title">{{day.title}}:</div>{%endif%}
@@ -27,5 +29,6 @@
 </div>
 {%endfor%}
 </div>
-
+</div>
+</div>
 {%endblock%}

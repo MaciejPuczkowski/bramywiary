@@ -55,6 +55,8 @@ class Content( models.Model ):
     homepage = models.BooleanField( default = False )
     hidden = models.BooleanField( default = False )
     objects = ContentManager()
+    def show_small(self):
+        return self.show()
     def show(self):
         html = ""
         if self.show_title and self.title is not None: 
@@ -104,8 +106,10 @@ class Photo( Content ):
         verbose_name_plural = "Zdjęcia"
     image = models.ImageField( upload_to = "photo/")
     objects = ContentManager()
-    def show(self):
-        html = '<div class="singlephoto">'
+    def show_small(self):
+        return self.show( _cls = "small")
+    def show(self, _cls = ""):
+        html = '<div class="singlephoto %s">' % _cls
         if self.show_title and self.title : 
             html += '<div class="title">%s</div>' %self.title
         html += '<img  src="/media/%s" />' %self.image
@@ -125,10 +129,12 @@ class Gallery( Content ):
         verbose_name_plural = "Galerie"
     photos = models.ManyToManyField( Photo )
     objects = ContentManager()
-    def show(self):
-        photos = self.photos.all().order_by( "-publish_date" )[:4]
+    def show_small(self):
+        return self.show( photos_no = 2, _cls = "small" )
+    def show(self, photos_no = 4 , _cls = ""):
+        photos = self.photos.all().order_by( "-publish_date" )[:photos_no]
         width = 200 * len( photos )
-        html = '<div class="gallery short" ><div class="title">' 
+        html = '<div class="gallery short %s" ><div class="title">' % _cls
         if self.show_title and self.title : 
             html +=  self.title
         html += '</div>'
@@ -139,9 +145,9 @@ class Gallery( Content ):
             .format( description = photo.description, image = src )
         html +='<div class="clearer"></div>'
         html += '</div>'
-        if self.photos.count() > 4:
+        if self.photos.count() > photos_no:
             
-            html += '<a href="/gallery,%d,%s.html" class="more">Zobacz całą galerię.</a>'  % ( self.id, self.title )
+            html += '<a href="/gallery,%d,%s.html" class="more">Zobacz całą galerię.</a>'  % ( self.id, "galeria" )
         html +='<div class="clearer"></div>'
         if self.show_description and self.description: 
             html += '<div class="description">%s</div>' %self.description
@@ -161,23 +167,28 @@ class Movie( Content ):
         verbose_name_plural = "Filmy"
     url = models.CharField( max_length = 1024 )
     objects = ContentManager()
-    def show(self):
+    def show_small(self):
+        return self.show( width = 500, height = 300, _cls = "small" )
+    def show(self, width = 640, height = 390, _cls = "" ):
         if self.show_title:
             title = self.title
         else:
             title = ""
-        html =' <div class="movie">'
+        html =' <div class="movie {ccls}">'.format(ccls = _cls)
         html += """
        
         <div class="title">{title}</div>
         <div class="clearer"></div>
         <div class="movie_object">
-            <iframe width="640" height="390" src="{url}?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+            <iframe width="{width}" height="{height}" src="{url}?wmode=opaque" frameborder="0" allowfullscreen></iframe>
         </div>
         
         """.format(
                    title = title,
-                   url = self.url
+                   url = self.url,
+                   width = width,
+                   height = height,
+                   
                    )
         if self.show_author and self.author: 
             html += '<div class="author">Autor:&nbsp;%s</div>' %self.author
