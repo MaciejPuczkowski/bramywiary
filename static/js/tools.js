@@ -65,5 +65,12 @@ $(document).ready(function(){
 		marginLeft: parseInt( left ) + 5 + $(".colorbox .subheader .title").width() + "px",
 		marginTop: parseInt( top_ ) + 5 + $(".colorbox .subheader .title").height() + "px"
 	});
-	
+	$(".banner a").css({
+		position: "absolute",
+		zIndex: "1000"
+	});
+	$(".button a").css({
+		position: "absolute",
+		zIndex: "1000"
+	});
 });
