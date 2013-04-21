@@ -48,6 +48,22 @@ def template_function( function ):
                 ret += ' class="inline_photo"  ' 
             ret += " />"
             return ret
+    if function[:7] == "gallery":
+       
+        name = re.search('image="(.*?)"' , function ).group(1)
+        descm = re.search('description="(.*?)"' , function )
+        thm = re.search('thumbnail="(.*?)"' , function )
+        desc = ""
+        thumbnail = name
+        if descm is not None:
+            desc = descm.group(1)
+        if thm is not None:
+            thumbnail = thm.group(1)
+            
+        html = '<a rel="prettyPhoto[pp_gal]" title="{description}" href="{image}" ><img  src="{thumbnail}" /></a>'\
+            .format( description = desc, image = name , thumbnail = thumbnail )
+        return html
+        
     if function[:4] == "link":
         matched = re.search('link="(.*?)"' , function )
         if matched is not None:
